@@ -3,11 +3,44 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "execute-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\""
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.30.0"
+    "@playwright/test": "^1.30.0",
+    "@types/screenshot-desktop": "^1.12.0",
+    "@types/ua-parser-js": "^0.7.36",
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "eslint": "^8.34.0",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-playwright": "^0.12.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "prettier": "^2.8.4",
+    "screenshot-desktop": "^0.0.0-development",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@alex_neo/playwright-azure-reporter": "^1.4.3",
+    "dotenv": "^16.0.3",
+    "ua-parser-js": "^1.0.33"
+  },
+  "lint-staged": {
+    "**/*.{ts,js}": [
+      "eslint . --fix",
+      "prettier --write ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

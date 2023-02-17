@@ -31,9 +31,10 @@ const config: PlaywrightTestConfig = {
   },
   forbidOnly: true,
   retries: 0,
-  workers: 0,
+  workers: 1,
   reporter: [['list'], ['@alex_neo/playwright-azure-reporter', options]],
   use: {
+    viewport: { width: 1024, height: 768 },
     screenshot: 'on',
     actionTimeout: 0,
     trace: 'retain-on-failure',

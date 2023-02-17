@@ -14,7 +14,7 @@ test.afterEach(async ({ page }) => {
       } <br /> ${osName as string}`;
       div.setAttribute(
         'style',
-        'position: fixed; top: 0; left: 0;font-size:160%;',
+        'position: fixed; top: 0; right: 0; width: 100%; height: 100%; z-index: 1000; font-size:160%;',
       );
       document.body.appendChild(div);
     },
@@ -23,13 +23,21 @@ test.afterEach(async ({ page }) => {
 });
 
 test('[14] Verify Title', async ({ page }) => {
-  await page.goto('https://www.google.com/');
-  await expect(page).toHaveTitle('Google');
+  await page.goto(
+    'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+  );
+  await expect(page).toHaveTitle('OrangeHRM');
+  await expect(page.locator('xpath=//input[@name="username"]')).toBeVisible();
 });
 
-test('[15] Verify Title after search', async ({ page }) => {
-  await page.goto('https://www.google.com/');
-  await page.locator('xpath=//input[@name="q"]').fill('playwright');
-  await page.keyboard.press('Enter');
-  await expect(page).toHaveTitle('playwright - Google Search');
+test('[15] Login', async ({ page }) => {
+  await page.goto(
+    'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+  );
+  await page.locator('xpath=//input[@name="username"]').fill('Admin');
+  await page.locator('xpath=//input[@name="password"]').fill('admin123');
+  await page.locator('xpath=//button[@type="submit"]').click();
+  await expect(
+    page.locator('xpath=//span[@class="oxd-topbar-header-breadcrumb"]'),
+  ).toBeVisible();
 });

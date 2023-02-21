@@ -3,13 +3,13 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
+    node: true
   },
+  parser: '@typescript-eslint/parser',
   overrides: [],
   parserOptions: {
-    project: 'tsconfig.json',
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    ecmaVersion: 12,
+    sourceType: 'module'
   },
-  rules: {},
-};
+  rules: {}
+}

@@ -1,7 +1,7 @@
-import { type AzureReporterOptions } from './node_modules/@alex_neo/playwright-azure-reporter';
-import { type PlaywrightTestConfig } from '@playwright/test';
-import dotenv from 'dotenv';
-dotenv.config();
+import { type AzureReporterOptions } from './playwright-azure-reporter'
+import { type PlaywrightTestConfig } from '@playwright/test'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const options: AzureReporterOptions = {
   orgUrl: 'https://dev.azure.com/playwrightpoc',
@@ -14,30 +14,30 @@ const options: AzureReporterOptions = {
   isDisabled: false,
   logging: false,
   attachmentsType: ['screenshot'],
-  publishTestResultsMode: 'testRun',
+  publishTestResultsMode: 'testResult',
   testRunConfig: {
     configurationIds: [1],
     owner: {
-      displayName: 'playwrightpoc',
+      displayName: 'playwrightpoc'
     },
-    comment: 'Playwright Test Run',
-  },
-};
+    comment: 'Playwright Test Run'
+  }
+}
 const config: PlaywrightTestConfig = {
   testDir: './tests',
   timeout: 30 * 1000,
   expect: {
-    timeout: 5000,
+    timeout: 5000
   },
   forbidOnly: true,
   retries: 0,
   workers: 1,
-  reporter: [['list'], ['@alex_neo/playwright-azure-reporter', options]],
+  reporter: [['list'], ['./playwright-azure-reporter', options]],
   use: {
-    viewport: { width: 1024, height: 768 },
-    screenshot: 'on',
+    viewport: { width: 1920, height: 1080 },
+    screenshot: 'off',
     actionTimeout: 0,
-    trace: 'retain-on-failure',
-  },
-};
-export default config;
+    trace: 'retain-on-failure'
+  }
+}
+export default config

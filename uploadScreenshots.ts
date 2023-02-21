@@ -17,8 +17,6 @@ import dotenv from 'dotenv'
             attachmentType: 'GeneralAttachment'
         }
         await axios.post(`https://dev.azure.com/playwrightpoc/PlaywrightPOC/_apis/test/Runs/${run_id}/Results/${testCaseId}/attachments?api-version=7.1-preview.1`,
-            data,{headers: headers}).then(function (response) {
-                console.log(response.status)
-            })
+            data, { headers: headers })
     })
 })();

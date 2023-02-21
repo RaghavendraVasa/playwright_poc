@@ -28,7 +28,7 @@ export default class util {
             },
             { browserName, osName }
         )
-        await this.page.waitForLoadState('domcontentloaded')
+        await this.page.click(`text=${browserName}`)
         await screenshot({ filename: `./screenshots/${test.info().title.split('[')[1].split(']')[0]}.png` })
     }
 }

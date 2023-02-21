@@ -3,7 +3,7 @@ import util from '../util';
 
 test.afterEach(async ({ page }) => {
   const helper = new util(page)
-  helper.saveScreenshot()
+  await helper.saveScreenshot()
 })
 
 test('[14] Verify Title', async ({ page }) => {

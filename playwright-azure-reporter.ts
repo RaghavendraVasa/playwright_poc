@@ -11,7 +11,6 @@ import chalk from 'chalk';
 import crypto from 'crypto';
 import { existsSync, readFileSync } from 'fs';
 import { IRequestOptions } from 'azure-devops-node-api/interfaces/common/VsoBaseInterfaces';
-import fs from 'fs';
 
 export function createGuid(): string {
   return crypto.randomBytes(16).toString('hex');
@@ -392,7 +391,6 @@ class AzureDevOpsReporter implements Reporter {
         };
         if (!this._testApi) this._testApi = await this._connection.getTestApi();
         const adTestRun = await this._testApi.createTestRun(runModel, this._projectName);
-        fs.writeFileSync('./azure.txt',String(adTestRun?.id))
         if (adTestRun?.id) return adTestRun;
         else throw new Error('Failed to create test run');
       }

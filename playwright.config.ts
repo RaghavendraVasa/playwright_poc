@@ -13,7 +13,7 @@ const options: AzureReporterOptions = {
   uploadAttachments: true,
   isDisabled: false,
   logging: false,
-  attachmentsType: ['screenshot'],
+  attachmentsType: ['screenshot','trace','video'],
   publishTestResultsMode: 'testResult',
   testRunConfig: {
     configurationIds: [1],
@@ -37,7 +37,8 @@ const config: PlaywrightTestConfig = {
     viewport: { width: 1920, height: 1080 },
     screenshot: 'off',
     actionTimeout: 0,
-    trace: 'retain-on-failure'
+    trace: 'retain-on-failure',
+    video: 'on'
   }
 }
 export default config

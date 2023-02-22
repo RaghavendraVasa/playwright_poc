@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test'
 import util from '../util';
 
-test.afterEach(async ({ page }) => {
-  const helper = new util(page)
+test.afterEach(async ({ page }, testInfo) => {
+  const helper = new util(page,testInfo)
   await helper.saveScreenshot()
 })
 
@@ -11,7 +11,7 @@ test('[14] Verify Title', async ({ page }) => {
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
   })
   await test.step('[2] Assert the title of webpage', async () => {
-    await expect(page).toHaveTitle('OrangeHRM')
+    await expect(page).toHaveTitle('OrangeHR')
     await expect(page.locator('xpath=//input[@name="username"]')).toBeVisible()
   })
 })

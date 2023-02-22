@@ -11,12 +11,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@alex_neo/playwright-azure-reporter": "^1.4.4",
     "@playwright/test": "^1.31.0",
     "@types/screenshot-desktop": "^1.12.0",
     "@types/ua-parser-js": "^0.7.36",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
-    "axios": "^1.3.3",
-    "envfile": "^6.18.0",
     "eslint": "^8.34.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
     "eslint-plugin-import": "^2.27.5",

@@ -4,6 +4,4 @@ node_modules/
 /playwright/.cache/
 .env
 .vscode/
-screenshots/
-azure.txt
 screenshot.png

@@ -1,10 +1,4 @@
-import { test, expect } from '@playwright/test'
-import util from '../util';
-
-test.afterEach(async ({ page }, testInfo) => {
-  const helper = new util(page,testInfo)
-  await helper.saveScreenshot()
-})
+import { test, expect } from '../fixtures/screenshotAutoFixture'
 
 test('[14] Verify Title', async ({ page }) => {
   await test.step('[1] Navigate to website', async () => {

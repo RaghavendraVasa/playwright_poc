@@ -13,7 +13,7 @@ const options: AzureReporterOptions = {
   uploadAttachments: true,
   isDisabled: false,
   logging: false,
-  attachmentsType: ['screenshot','trace','video'],
+  attachmentsType: ['screenshot', 'trace', 'video'],
   publishTestResultsMode: 'testResult',
   testRunConfig: {
     configurationIds: [1],
@@ -32,7 +32,7 @@ const config: PlaywrightTestConfig = {
   forbidOnly: true,
   retries: 0,
   workers: 1,
-  reporter: [['list'], ['@alex_neo/playwright-azure-reporter', options]],
+  reporter: [['list'], ['@alex_neo/playwright-azure-reporter', options],['html']],
   use: {
     viewport: { width: 1920, height: 1080 },
     screenshot: 'off',

@@ -12,7 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@alex_neo/playwright-azure-reporter": "^1.4.4",
-    "@playwright/test": "^1.31.0",
+    "@playwright/test": "^1.31.1",
     "@types/screenshot-desktop": "^1.12.0",
     "@types/ua-parser-js": "^0.7.36",
     "@typescript-eslint/eslint-plugin": "^5.52.0",

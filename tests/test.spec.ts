@@ -1,20 +1,18 @@
-import { test, expect } from '../fixtures/screenshotAutoFixture'
-import {step} from '../util'
+import { test, expect } from '@playwright/test'
+import { step } from '../util'
 
 test('[14] Verify Title', async ({ page }) => {
-
-  await step('[1] Navigate to website',[ async () => {
+  await step('[1] Navigate to website', [async () => {
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
   }])
-  
-  await step('[2] Assert the title of webpage',[ async () => {
+
+  await step('[2] Assert the title of webpage', [async () => {
     await expect(page).toHaveTitle('OrangeHRM')
     await expect(page.locator('xpath=//input[@name="username"]')).toBeVisible()
   }])
 })
 
 test('[15] Login', async ({ page }) => {
-
   await step('[1] Navigate to website', [async () => {
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
   }])

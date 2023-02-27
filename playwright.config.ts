@@ -1,4 +1,4 @@
-import { type AzureReporterOptions } from '@alex_neo/playwright-azure-reporter'
+import { type AzureReporterOptions } from './playwright-azure-reporter'
 import { type PlaywrightTestConfig } from '@playwright/test'
 import dotenv from 'dotenv'
 dotenv.config()
@@ -32,7 +32,7 @@ const config: PlaywrightTestConfig = {
   forbidOnly: true,
   retries: 0,
   workers: 1,
-  reporter: [['list'], ['@alex_neo/playwright-azure-reporter', options],['html']],
+  reporter: [['list'], ['./playwright-azure-reporter.ts', options], ['html']],
   use: {
     viewport: { width: 1920, height: 1080 },
     screenshot: 'off',
